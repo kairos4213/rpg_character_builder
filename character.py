@@ -1,4 +1,4 @@
-from species import Human, Dwarf, Halfling, Elf, Drow, HighElf, WoodElf
+from .species import Human, Dwarf, Halfling, Elf, Drow, HighElf, WoodElf
 
 
 class Character:
