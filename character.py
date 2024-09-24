@@ -2,12 +2,15 @@ from species import Human, Dwarf, Halfling, Elf, Drow, HighElf, WoodElf
 
 
 class Character:
-    def __init__(self):
-        self.name = None
-        self.class_type = None
-        self.species = None
-        self.background = None
-        self.alignment = None
+    def __init__(self, character_inputs):
+        self.name = character_inputs[0]
+        self.clss = character_inputs[1]
+        self.species = character_inputs[2]
+        self.alignment = character_inputs[3]
+
+        self.get_species_details()
+
+        """ self.background = None
         self.attributes = {
             "Strength": 10,
             "Dexterity": 10,
@@ -20,43 +23,59 @@ class Character:
         self.ideals = None
         self.bonds = None
         self.flaws = None
-        self.backstory = None
+        self.backstory = None """
 
-    def get_inputs(self):
-        print(
-            "\nPlease enter what you have so far.\n(If you don't have anything, or don't know what to put, please type 'None')\n"
-        )
-        self.name = input(">> Character Name: ").lower()
-        self.class_type = input(">> Class: ").lower()
-        self.species = self.get_species_details(input(">> Race: ").lower())
-        self.alignment = input(">> Alignment: ").lower()
-
-    def get_species_details(self, species_type):
-        match species_type:
+    def get_species_details(self):
+        match self.species:
             case "human":
-                return Human()
+                species = Human()
+                self.lineage = species.lineage
+                self.size = species.size
+                self.speed = species.speed
             case "dwarf":
-                return Dwarf()
+                species = Dwarf()
+                self.lineage = species.lineage
+                self.size = species.size
+                self.speed = species.speed
             case "halfling":
-                return Halfling()
+                species = Halfling()
+                self.lineage = species.lineage
+                self.size = species.size
+                self.speed = species.speed
             case "elf":
                 lineage = input(
-                    "\t>> Which lineage? (Drow, High Elf, Wood Elf "
+                    "\t>> Which Elven lineage? (Drow, High Elf, Wood Elf) "
                 ).lower()
-                return Elf(lineage.title())
+                species = Elf(lineage)
+                self.lineage = species.lineage
+                self.size = species.size
+                self.speed = species.speed
             case "drow":
-                return Drow()
+                species = Drow()
+                self.species = species.type
+                self.lineage = species.lineage
+                self.size = species.size
+                self.speed = species.speed
             case "high elf":
-                return HighElf()
+                species = HighElf()
+                self.species = species.type
+                self.lineage = species.lineage
+                self.size = species.size
+                self.speed = species.speed
             case "wood elf":
-                return WoodElf()
+                species = WoodElf()
+                self.species = species.type
+                self.lineage = species.lineage
+                self.size = species.size
+                self.speed = species.speed
 
     def generate(self):
         print(f"\nGenerating character")
 
-    def __str__(self):
+
+"""     def __str__(self):
         character_summary = (
-            "-------------------------------------------------------------\n\n"
+            "-" * 100 + "\n\n"
             f">> Character Name: {self.name}\n"
             f">> Class: {self.class_type}\n"
             f">> Species: {self.species.type}\n"
@@ -65,4 +84,4 @@ class Character:
             f"\t>> Speed: {self.species.speed}\n"
             f">> Alignment: {self.alignment}"
         )
-        return character_summary
+        return character_summary """

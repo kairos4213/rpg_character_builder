@@ -1,17 +1,18 @@
 class Species:
     def __init__(self):
-        self.creature_type = "Humanoid"
+        self.creature_type = "humanoid"
         self.speed = 30
         self.lineage = None
 
-    def __repr__(self):
-        return f"Species: {self._type}, Creature Type: {self._creature_type}, Size: {self._size}, Speed: {self._speed}, Lineage: {self._lineage}"
+
+"""     def __repr__(self):
+        return f"Species: {self.type}, Creature_Type: {self.creature_type}, Size: {self.size}, Speed: {self.speed}, Lineage: {self.lineage}" """
 
 
 class Human(Species):
     def __init__(self):
         super().__init__()
-        self.type = "Human"
+        self.type = "human"
         self.size = self.get_size()
 
     def get_size(self):
@@ -23,49 +24,46 @@ class Human(Species):
         )
 
         if height >= 2 and height < 4:
-            return "Small"
+            return "small"
         elif height >= 4 and height <= 7:
-            return "Medium"
+            return "medium"
         else:
             print("Invalid height. Defaulting to 'Medium' range (4-7ft)")
-            return "Medium"
+            return "medium"
 
 
 class Dwarf(Species):
     def __init__(self):
         super().__init__()
-        self.type = "Dwarf"
-        self.size = "Medium"
+        self.type = "dwarf"
+        self.size = "medium"
 
 
 class Halfling(Species):
     def __init__(self):
         super().__init__()
-        self.type = "Halfling"
-        self.size = "Small"
+        self.type = "halfling"
+        self.size = "small"
 
 
 class Elf(Species):
     def __init__(self, lineage):
         super().__init__()
-        self.type = "Elf"
-        self.size = "Medium"
+        self.type = "elf"
+        self.size = "medium"
         self.lineage = lineage
 
 
 class Drow(Elf):
     def __init__(self):
-        super().__init__()
-        self.lineage = "Drow"
+        super().__init__("drow")
 
 
 class HighElf(Elf):
     def __init__(self):
-        super().__init__()
-        self.lineage = "High Elf"
+        super().__init__("high elf")
 
 
 class WoodElf(Elf):
     def __init__(self):
-        super().__init__()
-        self.lineage = "Wood Elf"
+        super().__init__("wood elf")
