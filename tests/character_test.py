@@ -1,5 +1,5 @@
 import pytest
-from ..character import Character
+from ..app.character import Character
 
 
 def test_get_small_human_species_details(monkeypatch):

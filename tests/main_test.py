@@ -1,5 +1,5 @@
 import pytest
-from ..main import Main
+from ..app.main import Main
 
 
 @pytest.fixture
